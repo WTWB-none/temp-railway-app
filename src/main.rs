@@ -99,7 +99,6 @@ async fn main() -> std::io::Result<()> {
         .check()
         .unwrap();
 
-    #[cfg(debug_assertions)]
     for fixture in fixtures::DEVELOPMENT_FIXTURES {
         db.query(*fixture)
             .await
