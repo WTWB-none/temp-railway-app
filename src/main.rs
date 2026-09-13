@@ -132,7 +132,7 @@ async fn main() -> std::io::Result<()> {
             .build()
             .unwrap();
         App::new()
-            .wrap(Cors::permissive())
+            .wrap(Cors::permissive().allowed_origin("https://frame.s3-website.cloud.ru/"))
             .service(register::regster_user)
             .service(register::validate_email_field)
             .service(register::validate_password_field)
