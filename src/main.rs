@@ -35,7 +35,6 @@ use jwt_compact::alg::Ed25519;
 
 mod api;
 mod database;
-#[cfg(any(debug_assertions, test))]
 mod fixtures;
 mod guard;
 mod traits;
