@@ -1,5 +1,6 @@
 use std::io::ErrorKind;
 
+use actix_cors::Cors;
 use actix_jwt_auth_middleware::{Authority, TokenSigner, use_jwt::UseJWTOnApp};
 use actix_web::{App, HttpResponse, HttpServer, Responder, get, web};
 use ed25519_compact::KeyPair;
@@ -131,6 +132,7 @@ async fn main() -> std::io::Result<()> {
             .build()
             .unwrap();
         App::new()
+            .wrap(Cors::permissive())
             .service(register::regster_user)
             .service(register::validate_email_field)
             .service(register::validate_password_field)
